@@ -18,9 +18,9 @@ DoctorRouter.get('/doctors', (req, res) => {
     }
 }) 
 
-DoctorRouter.get('/doctors/:doctorname', (req, res) => {
+DoctorRouter.get('/doctors/:doctoremail', (req, res) => {
     try {
-        Doctor.find({name: req.params.doctorname})
+        Doctor.find({email: req.params.doctoremail})
             .then(doctor => {
                 if (doctor.length === 0) {
                     res.json("No such doctor in the database")
