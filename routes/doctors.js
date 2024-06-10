@@ -8,7 +8,7 @@ DoctorRouter.get('/doctors', (req, res) => {
         Doctor.find()
             .then(doctors => {
                 if (doctors.length === 0) {
-                    res.json("No doctors in the database")
+                    res.json([{"Message":"No doctors in the database"}])
                 } else {
                     res.json(doctors)
                 }
@@ -23,7 +23,7 @@ DoctorRouter.get('/doctors/:doctoremail', (req, res) => {
         Doctor.find({email: req.params.doctoremail})
             .then(doctor => {
                 if (doctor.length === 0) {
-                    res.json("No such doctor in the database")
+                    res.json([{"Message":"No such doctor in the database"}])
                 } else {
                     res.json(doctor)
                 }
